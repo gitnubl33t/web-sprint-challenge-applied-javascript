@@ -27,4 +27,8 @@ function Header() {
   header.classList.add("header");
   date.classList.add("date");
   span.classList.add("temp");
+
+  date.textContent = "MARCH, 28, 2020";
+  headerh1.textContent = "Lambda Times";
+  temp.textContent = "98°";
 }
