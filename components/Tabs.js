@@ -25,12 +25,12 @@ axios
     topicsArray.forEach((e) => {
       //create element
       let topicDiv = document.createElement("div");
+      //append to DOM
+      topics.appendChild(topicDiv);
       //add styling
       topicDiv.classList.add("tab");
       //add content
       topicDiv.textContent = e;
-      //append to DOM
-      topics.appendChild(topicDiv);
     });
   })
 
