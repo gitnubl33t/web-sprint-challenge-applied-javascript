@@ -28,13 +28,13 @@ axios
   .then((res) => {
     // if the call is successful, it runs this callback
     // Remember, res is an object, res.data is an array
-    // console.log("Here is the res: ", res);
+    console.log("Here is the res: ", res);
 
     let bootstrap = res.data.articles.bootstrap;
     let javascript = res.data.articles.javascript;
     let jquery = res.data.articles.jquery;
     let node = res.data.articles.node;
-    let tech = res.data.articles.tech;
+    let tech = res.data.articles.technology;
 
     bootstrap.forEach((i) => {
       articleCreator(i);
