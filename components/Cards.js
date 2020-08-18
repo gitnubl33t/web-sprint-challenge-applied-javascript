@@ -21,12 +21,41 @@
 //
 // Use your function to create a card for each of the articles, and append each card to the DOM.
 
+let cardsDiv = document.querySelector(".cards-container");
+
 axios
   .get("https://lambda-times-api.herokuapp.com/articles")
   .then((res) => {
     // if the call is successful, it runs this callback
     // Remember, res is an object, res.data is an array
-    console.log("Here is the res: ", res);
+    // console.log("Here is the res: ", res);
+
+    let bootstrap = res.data.articles.bootstrap;
+    let javascript = res.data.articles.javascript;
+    let jquery = res.data.articles.jquery;
+    let node = res.data.articles.node;
+    let tech = res.data.articles.tech;
+    let articles = res.data.articles;
+
+    bootstrap.forEach((i) => {
+      articleCreator(i);
+    });
+
+    javascript.forEach((i) => {
+      articleCreator(i);
+    });
+
+    jquery.forEach((i) => {
+      articleCreator(i);
+    });
+
+    node.forEach((i) => {
+      articleCreator(i);
+    });
+
+    tech.forEach((i) => {
+      articleCreator(i);
+    });
   })
 
   .catch((err) => {
@@ -49,6 +78,7 @@ function articleCreator(articleObj) {
   authorDiv.appendChild(imgDiv);
   imgDiv.appendChild(authorImg);
   authorDiv.appendChild(authorSig);
+  cardsDiv.appendChild(articleCard);
 
   //add styling
   articleCard.className = "card";
@@ -59,7 +89,7 @@ function articleCreator(articleObj) {
   //add text content
   articleHead.textContent = articleObj.headline;
   authorImg.src = articleObj.authorPhoto;
-  authorSig.textContent = authorName;
+  authorSig.textContent = authorSig;
 
   // Add a listener for click events so that when a user clicks on a card, the headline of the article is logged to the console.
 
