@@ -35,7 +35,6 @@ axios
     let jquery = res.data.articles.jquery;
     let node = res.data.articles.node;
     let tech = res.data.articles.tech;
-    let articles = res.data.articles;
 
     bootstrap.forEach((i) => {
       articleCreator(i);
