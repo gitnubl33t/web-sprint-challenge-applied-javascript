@@ -17,6 +17,7 @@ axios
   .get("https://lambda-times-api.herokuapp.com/topics")
   .then((res) => {
     // if the call is successful, it runs this callback
+    // Remember, res is an object, res.data is an array
     // console.log("Here is the res: ", res);
 
     topicsArray = res.data.topics;
