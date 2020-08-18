@@ -92,7 +92,7 @@ function articleCreator(articleObj) {
 
   // Add a listener for click events so that when a user clicks on a card, the headline of the article is logged to the console.
 
-  articleCard.addEventListener("click", (e) => {
+  articleCard.addEventListener("click", () => {
     console.log(articleHead.textContent);
   });
 }
