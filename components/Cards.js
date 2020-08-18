@@ -33,3 +33,37 @@ axios
     // if the call is unsuccessful, it runs this callback
     console.log("Error: ", err);
   });
+
+function articleCreator(articleObj) {
+  //create new elements
+  const articleCard = document.createElement("div");
+  const articleHead = document.createElement("div");
+  const authorDiv = document.createElement("div");
+  const imgDiv = document.createElement("div");
+  const authorImg = document.createElement("img");
+  const authorSig = document.createElement("span");
+
+  //append to the DOM
+  articleCard.appendChild(articleHead);
+  articleCard.appendChild(authorDiv);
+  authorDiv.appendChild(imgDiv);
+  imgDiv.appendChild(authorImg);
+  authorDiv.appendChild(authorSig);
+
+  //add styling
+  articleCard.className = "card";
+  articleHead.className = "headline";
+  authorDiv.className = "author";
+  imgDiv.className = "img-container";
+
+  //add text content
+  articleHead.textContent = articleObj.headline;
+  authorImg.src = articleObj.authorPhoto;
+  authorSig.textContent = authorName;
+
+  // Add a listener for click events so that when a user clicks on a card, the headline of the article is logged to the console.
+
+  articleCard.addEventListener("click", (e) => {
+    console.log(articleHead.textContent);
+  });
+}
