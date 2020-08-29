@@ -9,3 +9,32 @@
 //    <div class="tab">topic here</div>
 //
 // NOTE: you do _not_ need to install axios as it's included in the HTML via script element
+
+const topics = document.querySelector(".topics");
+let topicsArray = [];
+
+axios
+  .get("https://lambda-times-api.herokuapp.com/topics")
+  .then((res) => {
+    // if the call is successful, it runs this callback
+    // Remember, res is an object, res.data is an array
+    // console.log("Here is the res: ", res);
+
+    topicsArray = res.data.topics;
+
+    topicsArray.forEach((e) => {
+      //create element
+      let topicDiv = document.createElement("div");
+      //append to DOM
+      topics.appendChild(topicDiv);
+      //add styling
+      topicDiv.classList.add("tab");
+      //add content
+      topicDiv.textContent = e;
+    });
+  })
+
+  .catch((err) => {
+    // if the call is unsuccessful, it runs this callback
+    console.log("Error: ", err);
+  });
